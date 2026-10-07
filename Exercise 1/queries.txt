@@ -1,0 +1,27 @@
+db.students.insertMany([
+  {
+    name: "Hassan",
+    email: "Hassan@gmail.com",
+    age: 27,
+    Courses: ["Nodejs", "Reactjs"]
+  },
+
+  {
+    name: "Cali",
+    email: "Cali@gmail.com",
+    age: 24,
+    Courses: ["Msb", "JS"]
+  },
+
+  {
+    name: "Asma",
+    email: "Asma@gmail.com",
+    age: 17,
+    Courses: ["Sql", "Java"],
+    Address: {
+      Xafada: "Labadhagax",
+      Wadada: "2aad",
+      Guriga: "ms23"
+    }
+  }
+])
