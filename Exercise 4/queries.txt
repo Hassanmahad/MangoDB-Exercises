@@ -1,0 +1,21 @@
+db.students.aggregate([
+  
+{ $unwind: "$courses" },
+  {
+  $match: { "courses.score": { $gt: 85 } }
+},
+  {
+    $group: {
+      _id: "$courses.score",
+      total: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      course_score: "$_id",
+      total: 1,
+      _id: 0
+    }
+  },
+  { $sort: { total: -1 } }
+])

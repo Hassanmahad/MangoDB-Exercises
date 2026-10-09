@@ -1,0 +1,65 @@
+// 1. Insert 3 students
+db.students.insertMany([
+  {
+    name: "Hassan",
+    email: "hassan@gmail.com",
+    points: 50,
+    courses: ["Nodejs", "Reactjs"]
+  },
+  {
+    name: "Cali",
+    email: "cali@gmail.com",
+    points: 70,
+    courses: ["JavaScript", "MongoDB"]
+  },
+  {
+    name: "Asma",
+    email: "asma@gmail.com",
+    points: 60,
+    courses: ["HTML", "CSS"]
+  }
+])
+
+
+// 2. Use $set to update one email
+db.students.updateOne(
+  { name: "Hassan" },
+  { $set: { email: "hassan123@gmail.com" } }
+)
+
+
+// 3. Use $inc to increase points
+db.students.updateOne(
+  { name: "Hassan" },
+  { $inc: { points: 10 } }
+)
+
+
+// 4. Use $push to add a new course
+db.students.updateOne(
+  { name: "Hassan" },
+  { $push: { courses: "Expressjs" } }
+)
+
+
+// 5. Use $pull to remove a course
+db.students.updateOne(
+  { name: "Hassan" },
+  { $pull: { courses: "Nodejs" } }
+)
+
+
+// 6. BONUS
+// $set + $inc + $push together
+db.students.updateOne(
+  { name: "Cali" },
+  {
+    $set: { email: "cali123@gmail.com" },
+    $inc: { points: 20 },
+    $push: { courses: "Nodejs" }
+  }
+)
+
+
+// Check the result
+db.students.find()
